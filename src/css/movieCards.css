@@ -1,0 +1,142 @@
+.movie-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #141414, #1f1f1f);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.3);
+}
+
+/* 🎞️ Poster section */
+.movie-poster {
+  position: relative;
+  aspect-ratio: 2/3;
+  width: 100%;
+  overflow: hidden;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.movie-card:hover .movie-poster img {
+  transform: scale(1.1);
+}
+
+/* 🌫 Overlay with fade-in */
+.movie-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.1));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+/* ❤️ Favorite button */
+.favorite-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+  font-size: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.favorite-btn:hover {
+  background-color: rgba(0, 188, 212, 0.4);
+  transform: scale(1.1);
+}
+
+.favorite-btn.active {
+  color: #ff4d6d;
+}
+
+/* 🎟 Info panel */
+.movie-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.movie-info h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.movie-info p {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.user-rating {
+  color: #00bcd4;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* ⭐ Rating select */
+.rating-select {
+  background-color: rgba(0, 188, 212, 0.15);
+  color: white;
+  border: 1px solid rgba(0, 188, 212, 0.4);
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.rating-select:hover {
+  background-color: rgba(0, 188, 212, 0.25);
+}
+
+/* 📱 Mobile adjustments */
+@media (max-width: 768px) {
+  .movie-card {
+    font-size: 0.9rem;
+  }
+
+  .movie-info {
+    padding: 0.75rem;
+  }
+
+  .favorite-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 1.2rem;
+  }
+}
